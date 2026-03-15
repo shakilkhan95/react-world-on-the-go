@@ -1,15 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Suspense } from 'react';
+import './App.css';
+import Countries from './components/countries/Countries';
+
+const fetchCountriesData = async() => {
+  const res = await fetch('https://openapi.programming-hero.com/api/all');
+  return res.json();
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const countriesDataPromise = fetchCountriesData();
 
   return (
     <>
-      <h1>React World on the go...</h1>
+      <Suspense fallback={<h4>Countries are loading...</h4>}>
+        <Countries countriesDataPromise={countriesDataPromise}></Countries>
+      </Suspense>
     </>
   )
 }
