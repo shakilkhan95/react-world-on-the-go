@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Country.css';
 
 export default function Country ({country}) {
@@ -6,6 +7,16 @@ export default function Country ({country}) {
             population:{population},
             area:{area}
 } = country;
+
+const [visited, setVisited] = useState(false);
+//event handler for button
+const handleVisited = () => {
+    if(visited){
+        setVisited(false)
+    }else{
+        setVisited(true)
+    }
+}
 
 const width = {width: '340px', height: "200px"}
 
@@ -16,7 +27,7 @@ const width = {width: '340px', height: "200px"}
             <p>Official name: {official}</p>
             <p>Population: {population}</p>
             <p>{area}km {area > 300000 ? "(Big country)" : "(Small country)"}</p>
-            <button>Not Visited</button>
+            <button onClick={handleVisited}>{visited ? "Visited" : "Not Visited"}</button>
         </div>
     )
 }
