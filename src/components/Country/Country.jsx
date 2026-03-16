@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Country.css';
 
-export default function Country ({country}) {
+export default function Country ({country, handleVisitedCountries}) {
     const {name:{common, official},
             flags:{flags:{svg, alt}},
             population:{population},
@@ -11,7 +11,8 @@ export default function Country ({country}) {
 const [visited, setVisited] = useState(false);
 //event handler for button
 const handleVisited = () => {
-    setVisited(!visited)
+    setVisited(!visited);
+    handleVisitedCountries(country);
 }
 
 const width = {width: '340px', height: "200px"}
