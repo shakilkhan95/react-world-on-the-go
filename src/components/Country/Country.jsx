@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Country.css';
 
-export default function Country ({country, handleVisitedCountries}) {
+export default function Country ({country, handleVisitedCountries, handleVisitedCountriesFlag}) {
     const {name:{common, official},
             flags:{flags:{svg, alt}},
             population:{population},
@@ -25,6 +25,7 @@ const width = {width: '340px', height: "200px"}
             <p>Population: {population}</p>
             <p>{area}km {area > 300000 ? "(Big country)" : "(Small country)"}</p>
             <button onClick={handleVisited}>{visited ? "Visited" : "Not Visited"}</button>
+            <button onClick={() => {handleVisitedCountriesFlag(svg)}}>Visited country flag</button>
         </div>
     )
 }
