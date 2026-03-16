@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import Country from './Country';
+import Country from '../Country/Country';
 
 const Countries = ({countriesDataPromise}) => {
     const countriesData = use(countriesDataPromise);
