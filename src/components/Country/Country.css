@@ -5,3 +5,7 @@
     box-shadow: 0px 5px 0px 0px #11111150;
     background-color: aqua;
 }
+
+.country-visited{
+    background-color: rgb(167, 95, 139);
+}

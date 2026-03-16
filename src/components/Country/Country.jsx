@@ -11,17 +11,13 @@ export default function Country ({country}) {
 const [visited, setVisited] = useState(false);
 //event handler for button
 const handleVisited = () => {
-    if(visited){
-        setVisited(false)
-    }else{
-        setVisited(true)
-    }
+    setVisited(!visited)
 }
 
 const width = {width: '340px', height: "200px"}
 
     return(
-        <div className='country'>
+        <div className={`country ${visited && 'country-visited'}`}>
             <div><img style={width} src={svg} alt={alt}></img></div>
             <h3>Country name: {common}</h3>
             <p>Official name: {official}</p>
