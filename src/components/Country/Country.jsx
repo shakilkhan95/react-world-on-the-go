@@ -1,15 +1,22 @@
+import './Country.css';
+
 export default function Country ({country}) {
     const {name:{common, official},
-            flags:{flags:{png, alt}},
-            population:{population}
+            flags:{flags:{svg, alt}},
+            population:{population},
+            area:{area}
 } = country;
-    console.log(common)
+
+const width = {width: '340px', height: "200px"}
+
     return(
-        <div>
-            <img src={png} alt={alt}></img>
+        <div className='country'>
+            <div><img style={width} src={svg} alt={alt}></img></div>
             <h3>Country name: {common}</h3>
             <p>Official name: {official}</p>
             <p>Population: {population}</p>
+            <p>{area}km {area > 300000 ? "(Big country)" : "(Small country)"}</p>
+            <button>Not Visited</button>
         </div>
     )
 }
