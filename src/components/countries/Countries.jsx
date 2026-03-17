@@ -31,7 +31,7 @@ const Countries = ({countriesDataPromise}) => {
 
             <div className='visited-countries-flags-container'>
                 {
-                    visitedCountriesFlags.map(flag => <img key={flag} src={flag}></img>)
+                    visitedCountriesFlags.map((flag, index) => <img key={index} src={flag}></img>)
                 }
             </div>
 
